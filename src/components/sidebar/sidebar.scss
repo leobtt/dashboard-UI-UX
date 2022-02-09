@@ -12,6 +12,11 @@
   top: 0;
   z-index: 100;
 
+  // cancelando transition
+  @include tablet {
+    display: none;
+  }
+
   &__logo {
     @include flex();
 
