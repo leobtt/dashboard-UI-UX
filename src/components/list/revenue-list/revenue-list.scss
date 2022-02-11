@@ -1,0 +1,40 @@
+@use '../../../scss/abstracts/' as *;
+@use 'sass:math';
+
+.revenue-list {
+  & > * ~ * {
+    margin-top: math.div($spacing, 2);
+  }
+
+  &__item {
+    &__title {
+      @include flex(center, space-between);
+      font-size: $fontSizeMedium;
+      margin-bottom: math.div($spacing, 6);
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: $bodyBg;
+  border-radius: 2.5px;
+
+  &__inner {
+    border-radius: 2.5px;
+    height: 100%;
+    background-color: $orange;
+  }
+}
+
+.txt-success {
+  color: green;
+}
+
+.txt-danger {
+  color: red;
+}

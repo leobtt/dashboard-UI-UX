@@ -15,18 +15,28 @@ const Sidebar = () => {
     setActiveIndex(curPath.length === 0 ? 0 : activeItem)
   }, [location])
 
+  const closeSideBar = () => {
+    document.querySelector('.main__content').style.transform =
+      'scale(1) translateX(0)'
+    setTimeout(() => {
+      document.body.classList.remove('sidebar-open')
+      document.querySelector('.main__content').style = ''
+    }, 470)
+  }
+
   return (
     <>
       <div className="sidebar">
         <div className="sidebar__logo">
           <img src={images.logo} alt="usuário" />
-          <div className="sidebar-close">
-            <i className="bx bx-x bx-flashing-hover">hello</i>
+          <div className="sidebar-close" onClick={closeSideBar}>
+            <i className="bx bx-x bx-flashing-hover"></i>
           </div>
         </div>
         <div className="sidebar__menu">
           {sidebarNav.map((nav, index) => (
             <Link
+              onClick={closeSideBar}
               to={nav.link}
               key={`nav-${index}`}
               className={`sidebar__menu__item ${
